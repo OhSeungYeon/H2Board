@@ -1,0 +1,25 @@
+server:
+  port: 8888
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  h2:
+    console:
+      enabled: true  # H2 웹 콘솔을 사용하겠다는 의미
+      path: /test_db  # 콘솔의 경로
+  mvc:
+     view:
+        prefix: /WEB-INF/views/
+        suffix: .jsp
+  datasource:
+    driver-class-name: org.h2.Driver  #h2 드라이버 설정
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password: 
+    initialization-mode: always
+    platform: h2    
+    schema: classpath:query.sql   
+
+mybatis:
+  mapper-locations: mapper/*.xml
